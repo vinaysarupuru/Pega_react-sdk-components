@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
+import '../helpers/utils.dart';
+
 /// Attachment widget component
 /// Similar to the React SDK's Attachment component
 class Attachment extends StatefulWidget {
@@ -95,7 +97,7 @@ class _AttachmentState extends State<Attachment> {
     return ListTile(
       leading: Icon(_getFileIcon(file.extension)),
       title: Text(file.name),
-      subtitle: Text(_formatFileSize(file.size)),
+      subtitle: Text(Utils.formatFileSize(file.size)),
       trailing: readOnly
           ? IconButton(
               icon: const Icon(Icons.download),
@@ -135,15 +137,6 @@ class _AttachmentState extends State<Attachment> {
       default:
         return Icons.insert_drive_file;
     }
-  }
-
-  String _formatFileSize(int bytes) {
-    if (bytes < 1024) return '$bytes B';
-    if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(1)} KB';
-    if (bytes < 1024 * 1024 * 1024) {
-      return '${(bytes / (1024 * 1024)).toStringAsFixed(1)} MB';
-    }
-    return '${(bytes / (1024 * 1024 * 1024)).toStringAsFixed(1)} GB';
   }
 
   Future<void> _pickFiles(bool allowMultiple, List<String>? extensions) async {

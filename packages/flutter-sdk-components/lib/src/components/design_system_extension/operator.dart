@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/utils.dart';
+
 /// Operator component for displaying operator/user information
 /// Similar to the React SDK's Operator component
 class OperatorComponent extends StatelessWidget {
@@ -89,7 +91,7 @@ class OperatorComponent extends StatelessWidget {
 
   Widget _buildAvatar(BuildContext context, String name, String? avatar,
       {double size = 40}) {
-    final initials = _getInitials(name);
+    final initials = Utils.getInitials(name);
 
     if (avatar != null && avatar.isNotEmpty) {
       return CircleAvatar(
@@ -110,16 +112,6 @@ class OperatorComponent extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _getInitials(String name) {
-    final parts = name.split(' ');
-    if (parts.length >= 2) {
-      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
-    } else if (parts.isNotEmpty && parts[0].isNotEmpty) {
-      return parts[0][0].toUpperCase();
-    }
-    return '?';
   }
 }
 

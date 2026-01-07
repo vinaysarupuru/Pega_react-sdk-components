@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/utils.dart';
+
 /// Followers widget component
 /// Similar to the React SDK's Followers component
 class Followers extends StatelessWidget {
@@ -113,7 +115,7 @@ class Followers extends StatelessWidget {
       BuildContext context, Map<String, dynamic> user, bool readOnly) {
     final name = user['name'] as String? ?? '';
     final avatar = user['avatar'] as String?;
-    final initials = _getInitials(name);
+    final initials = Utils.getInitials(name);
 
     return Chip(
       avatar: avatar != null
@@ -138,16 +140,6 @@ class Followers extends StatelessWidget {
               // Remove follower logic
             },
     );
-  }
-
-  String _getInitials(String name) {
-    final parts = name.split(' ');
-    if (parts.length >= 2) {
-      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
-    } else if (parts.isNotEmpty && parts[0].isNotEmpty) {
-      return parts[0][0].toUpperCase();
-    }
-    return '?';
   }
 }
 

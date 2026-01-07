@@ -153,7 +153,29 @@ class Utils {
 
   /// Generates a unique identifier
   static String generateUID() {
-    return '_${DateTime.now().millisecondsSinceEpoch.toRadixString(36)}_${(1000 + DateTime.now().microsecond).toString()}';
+    final now = DateTime.now();
+    return '_${now.millisecondsSinceEpoch.toRadixString(36)}_${(1000 + now.microsecond).toString()}';
+  }
+
+  /// Formats a file size in bytes to a human-readable string
+  static String formatFileSize(int bytes) {
+    if (bytes < 1024) return '$bytes B';
+    if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(1)} KB';
+    if (bytes < 1024 * 1024 * 1024) {
+      return '${(bytes / (1024 * 1024)).toStringAsFixed(1)} MB';
+    }
+    return '${(bytes / (1024 * 1024 * 1024)).toStringAsFixed(1)} GB';
+  }
+
+  /// Gets initials from a name (e.g., "John Doe" -> "JD")
+  static String getInitials(String name) {
+    final parts = name.split(' ');
+    if (parts.length >= 2) {
+      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
+    } else if (parts.isNotEmpty && parts[0].isNotEmpty) {
+      return parts[0][0].toUpperCase();
+    }
+    return '?';
   }
 
   /// Checks if two objects are deeply equal

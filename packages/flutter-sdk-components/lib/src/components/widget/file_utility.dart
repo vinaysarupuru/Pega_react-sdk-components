@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/utils.dart';
+
 /// FileUtility widget component
 /// Similar to the React SDK's FileUtility component
 class FileUtility extends StatelessWidget {
@@ -115,7 +117,7 @@ class FileUtility extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(_formatFileSize(size)),
+          Text(Utils.formatFileSize(size)),
           if (uploadedBy != null)
             Text(
               'Uploaded by $uploadedBy${uploadedAt != null ? ' on $uploadedAt' : ''}',
@@ -169,15 +171,6 @@ class FileUtility extends StatelessWidget {
     if (type.contains('audio')) return Icons.audio_file;
 
     return Icons.insert_drive_file;
-  }
-
-  String _formatFileSize(int bytes) {
-    if (bytes < 1024) return '$bytes B';
-    if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(1)} KB';
-    if (bytes < 1024 * 1024 * 1024) {
-      return '${(bytes / (1024 * 1024)).toStringAsFixed(1)} MB';
-    }
-    return '${(bytes / (1024 * 1024 * 1024)).toStringAsFixed(1)} GB';
   }
 }
 
