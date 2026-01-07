@@ -1,8 +1,12 @@
 <p align="center"><img width=60% src="docs/media/ReactSDK-Logo.png">
 
-# React SDK Components
+# Pega SDK Components
 
-The **React SDK Components** repo is used to create the [**@pega/react-sdk-components**](https://www.npmjs.com/package/@pega/react-sdk-components)
+This repository contains SDK components for building applications with **Pega Constellation**. It includes both **React** and **Flutter** implementations of DX Components.
+
+## React SDK Components
+
+The **React SDK Components** are used to create the [**@pega/react-sdk-components**](https://www.npmjs.com/package/@pega/react-sdk-components)
 and [**@pega/react-sdk-overrides**](https://www.npmjs.com/package/@pega/react-sdk-overrides) npm packages
 used by the Pega [**Constellation React SDK**](https://community.pega.com/marketplace/component/react-sdk).
 These packages provide the initial set of components used by the **React SDK** to render DX Components with
@@ -20,7 +24,9 @@ on [**GitHub**](https://community.pega.com/marketplace/component/react-sdk).
 
 ## Packages in this repo
 
-* [**react-sdk-components**](https://www.npmjs.com/package/@pega/react-sdk-components) <br />
+### React Packages
+
+* [**react-sdk-components**](./packages/react-sdk-components) <br />
 This package contains the source code for the Pega-provided **bridge** (in src/bridge)
 from the [**ConstellationJS Engine**](https://www.npmjs.com/package/@pega/constellationjs) to
 the **DX components** (in src/components). The DX Components are a reference implementation that
@@ -28,11 +34,26 @@ use the [Material UI](https://v4.mui.com/) design system. The bridge and compone
 published in the [**@pega/react-sdk-components**](https://www.npmjs.com/package/@pega/react-sdk-components)
 npm module.
 
-* [**react-sdk-overrides**](https://www.npmjs.com/package/@pega/react-sdk-overrides) <br />
+* [**react-sdk-overrides**](./packages/react-sdk-overrides) <br />
 Scripts in this repo process the components in the **react-sdk-components** package to provide
 an initial implementation for SDK users who want to **override** the React SDK's Pega-provided
 implementation. The source code for these override components is published in the
 [**@pega/react-sdk-overrides**](https://www.npmjs.com/package/@pega/react-sdk-overrides) npm module.
+
+### Flutter Packages
+
+* [**flutter-sdk-components**](./packages/flutter-sdk-components) <br />
+This package contains the Flutter implementation of the Pega-provided **bridge** and **DX components**. 
+The DX Components are a reference implementation that use Flutter's Material Design system. 
+The bridge connects to the ConstellationJS Engine and the components provide a native Flutter UI experience.
+Components include field components (TextInput, Dropdown, Checkbox, etc.), template components 
+(OneColumn, TwoColumn, CaseView, etc.), widget components (Attachment, ToDo, CaseHistory, etc.), 
+and infrastructure components (NavBar, Stages, ActionButtons, etc.).
+
+* [**flutter-sdk-overrides**](./packages/flutter-sdk-overrides) <br />
+This package provides the structure for SDK users who want to **override** the Flutter SDK's 
+Pega-provided implementation. It re-exports all components from flutter-sdk-components and 
+allows users to register custom implementations that take precedence over the default components.
 
 
 <hr />
@@ -62,3 +83,5 @@ Refer to our [guidelines for contributors](./docs/CONTRIBUTING.md) if you are in
 * [Troubleshooting Constellation SDKs](https://docs.pega.com/bundle/constellation-sdk/page/constellation-sdks/sdks/troubleshooting-constellation-sdks.html)
 * [MediaCo sample application](https://docs.pega.com/bundle/constellation-sdk/page/constellation-sdks/sdks/mediaco-sample-application.html)
 * [Material UI](https://v4.mui.com/)
+* [Flutter Documentation](https://docs.flutter.dev/)
+* [Material Design for Flutter](https://docs.flutter.dev/development/ui/widgets/material)

@@ -1,0 +1,38 @@
+name: pega_flutter_sdk_components
+description: Flutter SDK Infrastructure - bridge and components for Pega Constellation
+version: 25.1.10
+homepage: https://github.com/pegasystems/flutter-sdk-components
+repository: https://github.com/pegasystems/flutter-sdk-components
+issue_tracker: https://github.com/pegasystems/flutter-sdk-components/issues
+documentation: https://docs.pega.com/bundle/constellation-sdk/page/constellation-sdks/sdks/constellation-sdks.html
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.1
+  intl: ^0.19.0
+  http: ^1.1.0
+  file_picker: ^6.1.1
+  url_launcher: ^6.2.1
+  flutter_html: ^3.0.0-beta.2
+  image_picker: ^1.0.4
+  google_maps_flutter: ^2.5.0
+  permission_handler: ^11.1.0
+  equatable: ^2.0.5
+  collection: ^1.18.0
+  path: ^1.8.0
+  logging: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  mockito: ^5.4.3
+  build_runner: ^2.4.7
+
+flutter:
+  uses-material-design: true
