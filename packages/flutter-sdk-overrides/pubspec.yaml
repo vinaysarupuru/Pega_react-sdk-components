@@ -1,0 +1,24 @@
+name: pega_flutter_sdk_overrides
+description: Flutter SDK - Code for overriding Pega Constellation components
+version: 25.1.10
+homepage: https://github.com/pegasystems/flutter-sdk-components
+repository: https://github.com/pegasystems/flutter-sdk-components
+issue_tracker: https://github.com/pegasystems/flutter-sdk-components/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pega_flutter_sdk_components:
+    path: ../flutter-sdk-components
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
