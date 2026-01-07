@@ -6,8 +6,9 @@ node_modules
 /distAuthoring
 /__DO_NOT_COMMIT
 
-**/lib
-**/**/lib
+# Ignore React SDK lib directories (build outputs)
+packages/react-sdk-components/lib
+packages/react-sdk-overrides/lib
 
 # output for jest and playwright output
 tests/coverage
